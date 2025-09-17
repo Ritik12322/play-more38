@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayMore - African Herbs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            padding-bottom: 120px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 15px 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .free-consultation {
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .call-header {
+            background: #ff9500;
+            color: black;
+            padding: 8px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .call-header:hover {
+            background: #e68500;
+            transform: scale(1.05);
+        }
+
+        .marquee-container {
+            background: #ff9500;
+            padding: 8px 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee-text {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 20s linear infinite;
+            color: #333;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        @keyframes marquee {
+            0% { transform: translate3d(100%, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
+        }
+
+        .logo {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .logo-text {
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+        }
+
+        .product-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 50vh;
+            padding: 15px;
+            position: relative;
+        }
+
+        .product-image {
+            max-width: 80%;
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.5));
+            transition: transform 0.3s ease;
+        }
+
+        .product-image:hover {
+            transform: scale(1.05);
+        }
+
+        .trust-badge {
+            position: static;
+            margin: 20px auto;
+            background: linear-gradient(135deg, #ff9500 0%, #ffa500 100%);
+            border-radius: 12px;
+            padding: 12px;
+            box-shadow: 0 8px 20px rgba(255, 149, 0, 0.4);
+            animation: pulse 3s ease-in-out infinite;
+            border: 2px solid white;
+            max-width: 90%;
+        }
+
+        .trust-content {
+            text-align: center;
+            color: white;
+        }
+
+        .trust-icon {
+            font-size: 28px;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .trust-title {
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 4px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .trust-subtitle {
+            font-size: 10px;
+            opacity: 0.9;
+        }
+
+        .trust-stars {
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 8px 20px rgba(255, 149, 0, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 12px 30px rgba(255, 149, 0, 0.6); }
+        }
+
+        .additional-badges {
+            position: static;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px 0;
+            max-width: 90%;
+        }
+
+        .mini-badge {
+            background: rgba(255, 149, 0, 0.9);
+            border-radius: 20px;
+            padding: 6px 10px;
+            color: white;
+            font-size: 10px;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(255, 149, 0, 0.3);
+            border: 1px solid white;
+            animation: float-badge 4s ease-in-out infinite;
+        }
+
+        .mini-badge:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        .mini-badge:nth-child(3) {
+            animation-delay: 2s;
+        }
+
+        @keyframes float-badge {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-4px); }
+        }
+
+        .button-container {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .call-now-btn, .book-now-btn {
+            background: #ff9500;
+            color: black;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(255, 149, 0, 0.3);
+            touch-action: manipulation;
+        }
+
+        .call-now-btn:hover, .book-now-btn:hover {
+            background: #e68500;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(255, 149, 0, 0.5);
+        }
+
+        .benefits-section {
+            padding: 40px 15px;
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+            margin-top: 30px;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #ff9500;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .benefit-card {
+            background: rgba(255, 149, 0, 0.1);
+            border: 1px solid #ff9500;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 149, 0, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s;
+            opacity: 0;
+        }
+
+        .benefit-card:hover::before {
+            animation: shine 0.6s ease-in-out;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(255, 149, 0, 0.3);
+        }
+
+        @keyframes shine {
+            0% { opacity: 0; transform: rotate(45deg) translateX(-100%); }
+            50% { opacity: 1; }
+            100% { opacity: 0; transform: rotate(45deg) translateX(100%); }
+        }
+
+        .benefit-icon {
+            font-size: 36px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .benefit-title {
+            color: #ff9500;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .benefit-description {
+            color: #ccc;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .decorative-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .circle {
+            position: absolute;
+            border: 2px solid rgba(255, 149, 0, 0.2);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .circle1 {
+            width: 80px;
+            height: 80px;
+            top: 15%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .circle2 {
+            width: 120px;
+            height: 120px;
+            top: 50%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .circle3 {
+            width: 60px;
+            height: 60px;
+            top: 35%;
+            left: 85%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(180deg); }
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.6);
+        }
+
+        .modal-content {
+            background-color: #2d2d2d;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #ff9500;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+            color: white;
+        }
+
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #contact-form input, #contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ff9500;
+            background-color: #1a1a1a;
+            color: white;
+        }
+
+        #contact-form button {
+            background: #ff9500;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        @media (min-width: 768px) {
+            .product-container {
+                flex-direction: row;
+                min-height: 60vh;
+            }
+
+            .product-image {
+                max-width: 400px;
+            }
+
+            .trust-badge {
+                position: absolute;
+                right: 10%;
+                top: 20%;
+                padding: 15px;
+                border: 3px solid white;
+            }
+
+            .additional-badges {
+                position: absolute;
+                right: 5%;
+                bottom: 30%;
+                flex-direction: column;
+            }
+
+            .benefits-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                max-width: 1200px;
+            }
+
+            .free-consultation {
+                font-size: 18px;
+            }
+
+            .call-header {
+                padding: 8px 20px;
+                font-size: 16px;
+            }
+
+            .logo-text {
+                font-size: 24px;
+                letter-spacing: 2px;
+            }
+
+            .section-title {
+                font-size: 32px;
+                letter-spacing: 2px;
+            }
+
+            .benefit-card {
+                padding: 30px;
+            }
+
+            .benefit-icon {
+                font-size: 48px;
+            }
+
+            .benefit-title {
+                font-size: 20px;
+            }
+
+            .benefit-description {
+                font-size: 16px;
+                line-height: 1.6;
+            }
+
+            .trust-icon {
+                font-size: 32px;
+                margin-bottom: 8px;
+            }
+
+            .trust-title {
+                font-size: 14px;
+                margin-bottom: 5px;
+            }
+
+            .trust-subtitle {
+                font-size: 11px;
+            }
+
+            .trust-stars {
+                font-size: 16px;
+                margin-top: 5px;
+            }
+
+            .mini-badge {
+                padding: 8px 12px;
+                font-size: 12px;
+                border: 2px solid white;
+            }
+
+            .call-now-btn, .book-now-btn {
+                padding: 15px 40px;
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-image {
+                max-width: 90%;
+            }
+
+            .call-now-btn, .book-now-btn {
+                padding: 10px 25px;
+                font-size: 14px;
+            }
+
+            .free-consultation {
+                font-size: 14px;
+            }
+
+            .call-header {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+
+            .marquee-text {
+                font-size: 12px;
+            }
+
+            .logo-text {
+                font-size: 18px;
+                letter-spacing: 1px;
+            }
+
+            .section-title {
+                font-size: 20px;
+            }
+
+            .benefit-card {
+                padding: 15px;
+            }
+
+            .benefit-icon {
+                font-size: 32px;
+            }
+
+            .benefit-title {
+                font-size: 16px;
+            }
+
+            .benefit-description {
+                font-size: 13px;
+            }
+
+            .trust-badge {
+                padding: 10px;
+            }
+
+            .trust-icon {
+                font-size: 24px;
+            }
+
+            .trust-title {
+                font-size: 11px;
+            }
+
+            .trust-subtitle {
+                font-size: 9px;
+            }
+
+            .trust-stars {
+                font-size: 12px;
+            }
+
+            .mini-badge {
+                padding: 5px 8px;
+                font-size: 9px;
+            }
+
+            .circle1 {
+                width: 60px;
+                height: 60px;
+            }
+
+            .circle2 {
+                width: 80px;
+                height: 80px;
+            }
+
+            .circle3 {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="decorative-elements">
+        <div class="circle circle1"></div>
+        <div class="circle circle2"></div>
+        <div class="circle circle3"></div>
+    </div>
+
+    <div class="header">
+        <div class="free-consultation">Free Consultation</div>
+        <a href="tel:7678334575" class="call-header">📞 Call Now : 7678334575</a>
+    </div>
+
+    <div class="marquee-container">
+        <div class="marquee-text">
+            पुरुषों की पहली पसंद   पावर, जोश और टाइमिंग बढ़ाएं   पुरुषों की पहली पसंद   पावर, जोश और टाइमिंग बढ़ाएं   पुरुषों की पहली पसंद
+        </div>
+    </div>
+
+    <div class="logo">
+        <div class="logo-text">
+            PlayMore - African Herbs
+        </div>
+    </div>
+
+    <div class="product-container">
+        <img src="https://playmoreherbs.org/wp-content/uploads/2025/06/Play-More-Bottle-Latest-1536x1536.png" class="product-image" />
+        <div class="trust-badge">
+            <div class="trust-content">
+                <span class="trust-icon">🛡️</span>
+                <div class="trust-title">Trusted by Thousands</div>
+                <div class="trust-subtitle">100% Natural & Safe</div>
+                <div class="trust-stars">★★★★★</div>
+            </div>
+        </div>
+        <div class="additional-badges">
+            <div class="mini-badge">GMP Certified</div>
+            <div class="mini-badge">100% Natural</div>
+            <div class="mini-badge">Doctor Approved</div>
+        </div>
+    </div>
+
+    <div class="benefits-section">
+        <h2 class="section-title">Benefits of PlayMore</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <span class="benefit-icon">⚡</span>
+                <h3 class="benefit-title">Boosts Energy</h3>
+                <p class="benefit-description">Experience enhanced stamina and vitality with natural African herbs, designed to keep you energized throughout the day.</p>
+            </div>
+            <div class="benefit-card">
+                <span class="benefit-icon">💪</span>
+                <h3 class="benefit-title">Improves Performance</h3>
+                <p class="benefit-description">Enhance your physical performance and confidence with a formula crafted for optimal results.</p>
+            </div>
+            <div class="benefit-card">
+                <span class="benefit-icon">🛡️</span>
+                <h3 class="benefit-title">Safe & Natural</h3>
+                <p class="benefit-description">Made from 100% natural ingredients, ensuring safety and effectiveness without harmful side effects.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <a href="tel:7678334575" class="call-now-btn">CALL NOW</a>
+        <button class="book-now-btn">BOOK NOW</button>
+    </div>
+
+    <div id="contact-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Contact Us</h2>
+            <form id="contact-form">
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <input type="tel" id="phone" name="phone" placeholder="Your Phone" required>
+                <textarea id="address" name="address" placeholder="Your Address" required></textarea>
+                <button type="submit">Send to WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const productImage = document.querySelector('.product-image');
+            productImage.addEventListener('click', function() {
+                this.style.transform = 'scale(1.1)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 200);
+            });
+
+            const circles = document.querySelectorAll('.circle');
+            circles.forEach((circle, index) => {
+                circle.style.animationDelay = `${index * 2}s`;
+            });
+
+            const modal = document.getElementById('contact-modal');
+            const bookNowBtn = document.querySelector('.book-now-btn');
+            const closeBtn = document.querySelector('.close-btn');
+
+            bookNowBtn.onclick = function() {
+                modal.style.display = 'block';
+            }
+
+            closeBtn.onclick = function() {
+                modal.style.display = 'none';
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            }
+
+            const contactForm = document.getElementById('contact-form');
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('name').value;
+                const phone = document.getElementById('phone').value;
+                const address = document.getElementById('address').value;
+                const whatsappNumber = '+917678334575';
+                const message = `New Booking:
+Name: ${name}
+Phone: ${phone}
+Address: ${address}`;
+                const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+                window.open(whatsappUrl, '_blank');
+                modal.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
