@@ -35,13 +35,13 @@
         .call-header {
             background: #ff9500;
             color: black;
-            padding: 8px 15px;
+            padding: 12px 25px;
             border-radius: 20px;
             display: inline-block;
             font-weight: bold;
             text-decoration: none;
             transition: all 0.3s ease;
-            font-size: 14px;
+            font-size: 18px;
         }
 
         .call-header:hover {
@@ -210,6 +210,13 @@
             transition: all 0.3s ease;
             box-shadow: 0 8px 20px rgba(255, 149, 0, 0.3);
             touch-action: manipulation;
+        }
+
+        .button-container .call-now-btn,
+        .button-container .book-now-btn {
+            flex: 1;
+            text-align: center;
+            white-space: nowrap; /* Prevent text from wrapping */
         }
 
         .call-now-btn:hover, .book-now-btn:hover {
@@ -403,6 +410,431 @@
             cursor: pointer;
             font-size: 16px;
         }
+        .video-section {
+    padding: 40px 15px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    margin-top: 30px;
+    position: relative;
+}
+
+.carousel-container {
+    overflow: hidden;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.carousel-wrapper {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.video-thumbnail {
+    flex: 0 0 100%;
+    max-width: 100%;
+    background: rgba(255, 149, 0, 0.1);
+    border: 1px solid #ff9500;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    margin: 0 10px;
+}
+
+.video-thumbnail:hover .play-icon {
+    opacity: 1;
+}
+
+.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.video-thumbnail img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.video-title {
+    color: #ff9500;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 149, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 100;
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+.video-modal {
+    display: none;
+    position: fixed;
+    z-index: 1002;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.video-modal-content {
+    position: relative;
+    background-color: #1a1a1a;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #ff9500;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 10px;
+}
+
+.video-close-btn {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.video-close-btn:hover {
+    color: white;
+}
+
+.video-player {
+    width: 100%;
+    height: auto;
+}
+
+.info-section {
+    padding: 40px 15px;
+    color: white;
+    text-align: center;
+}
+
+.info-section h3 {
+    font-size: 28px;
+    color: #ff9500;
+    margin-bottom: 20px;
+}
+
+.info-section p {
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    color: #ccc;
+}
+
+.why-choose-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 40px auto 0;
+}
+
+.why-choose-card {
+    background: rgba(255, 149, 0, 0.1);
+    border: 1px solid #ff9500;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.why-choose-card h4 {
+    font-size: 20px;
+    color: #ff9500;
+    margin-bottom: 10px;
+}
+
+.why-choose-card p {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 0;
+}
+
+.info-book-now {
+    margin-top: 40px;
+}
+
+.advantages-section {
+    display: flex;
+    align-items: center;
+    padding: 40px 15px;
+    color: white;
+}
+
+.advantages-section .product-image {
+    max-width: 400px;
+    margin-right: 40px;
+}
+
+.advantages-section .advantages-content {
+    max-width: 600px;
+}
+
+.advantages-section h3 {
+    font-size: 28px;
+    color: #ff9500;
+    margin-bottom: 20px;
+}
+
+.advantages-section p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.advantages-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.advantages-section li {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #ccc;
+    margin-bottom: 10px;
+    padding-left: 25px;
+    position: relative;
+}
+
+.advantages-section li::before {
+    content: '✔';
+    color: #ff9500;
+    position: absolute;
+    left: 0;
+}
+
+.how-to-use-section {
+    padding: 40px 15px;
+    text-align: center;
+}
+
+.how-to-use-section img {
+    max-width: 100%;
+    border-radius: 12px;
+}
+
+.ratings-section {
+    padding: 40px 15px;
+    background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+    color: white;
+    text-align: center;
+}
+
+.ratings-summary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.overall-rating {
+    display: flex;
+    align-items: baseline;
+}
+
+.rating-value {
+    font-size: 48px;
+    font-weight: bold;
+    color: #ff9500;
+}
+
+.rating-max {
+    font-size: 24px;
+    color: #ccc;
+}
+
+.reviews-count {
+    font-size: 18px;
+    color: #ccc;
+}
+
+.ratings-breakdown {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.rating-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.star-label {
+    font-size: 16px;
+    color: #ff9500;
+    width: 50px;
+}
+
+.bar-container {
+    flex-grow: 1;
+    background: #444;
+    border-radius: 5px;
+    height: 10px;
+    margin: 0 10px;
+}
+
+.bar {
+    height: 100%;
+    background: #ff9500;
+    border-radius: 5px;
+}
+
+.rating-count {
+    font-size: 16px;
+    color: #ccc;
+    width: 50px;
+}
+
+.testimonial-section {
+    padding: 40px 15px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+.testimonial-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.testimonial-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: #2c2c2c;
+    border: 1px solid #ff9500;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: left;
+    color: white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.testimonial-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 30px;
+    border: 4px solid #ff9500;
+    box-shadow: 0 5px 15px rgba(255, 149, 0, 0.3);
+    flex-shrink: 0;
+}
+
+.testimonial-name {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ff9500;
+    margin-bottom: 15px;
+    font-family: 'Georgia', serif;
+}
+
+.testimonial-text {
+    font-size: 18px;
+    color: #ddd;
+    line-height: 1.7;
+    font-style: italic;
+}
+
+.booking-section {
+    padding: 40px 15px;
+    background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+}
+
+.booking-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #ff9500;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: #ff9500;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ff9500;
+    background-color: #2d2d2d;
+    color: white;
+    font-size: 16px;
+}
+
+.form-group-inline {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group-inline .form-group {
+    flex: 1;
+}
+
+.booking-form .call-now-btn {
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.arrow-left, .arrow-right {
+    animation: blink 1s linear infinite;
+}
 
         @media (min-width: 768px) {
             .product-container {
@@ -439,8 +871,8 @@
             }
 
             .call-header {
-                padding: 8px 20px;
-                font-size: 16px;
+                padding: 15px 30px;
+                font-size: 20px;
             }
 
             .logo-text {
@@ -499,6 +931,22 @@
                 padding: 15px 40px;
                 font-size: 18px;
             }
+
+            .video-thumbnail {
+                flex: 0 0 30%;
+                max-width: 30%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .advantages-section {
+                flex-direction: column;
+            }
+
+            .advantages-section .product-image {
+                margin-right: 0;
+                margin-bottom: 40px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -516,8 +964,8 @@
             }
 
             .call-header {
-                padding: 6px 12px;
-                font-size: 12px;
+                padding: 10px 20px;
+                font-size: 16px;
             }
 
             .marquee-text {
@@ -600,7 +1048,7 @@
 
     <div class="header">
         <div class="free-consultation">Free Consultation</div>
-        <a href="tel:9318308838" class="call-header">📞 Call Now : 9318308838</a>
+        <a href="tel:7678334575" class="call-header"><span class="arrow-left">→</span> 📞 Call Now : 7678334575 <span class="arrow-right">←</span></a>
     </div>
 
     <div class="marquee-container">
@@ -652,10 +1100,176 @@
             </div>
         </div>
     </div>
+    <div class="video-section">
+        <h2 class="section-title">Watch Our Videos</h2>
+        <div class="carousel-container">
+            <div class="carousel-wrapper">
+                <div class="video-thumbnail" data-video-id="video1">
+                    <img src="https://playmoreherbs.org/wp-content/uploads/2025/06/ply-more-web-30-05-Picsart-AiImageEnhancer-1-1536x1536.webp" alt="Video 1">
+                    <div class="play-icon">►</div>
+                    <div class="video-title">Video 1: The Power of African Herbs</div>
+                </div>
+                <div class="video-thumbnail" data-video-id="video2">
+                    <img src="https://playmoreherbs.org/wp-content/uploads/2025/06/2305-african-herbs.webp" alt="Video 2">
+                    <div class="play-icon">►</div>
+                    <div class="video-title">Video 2: How PlayMore Works</div>
+                </div>
+                <div class="video-thumbnail" data-video-id="video3">
+                    <img src="https://playmoreherbs.org/wp-content/uploads/2025/06/play-more_Thumbnail_02__1x1-Ratio-Picsart-AiImageEnhancer-1-1536x1536.webp" alt="Video 3">
+                    <div class="play-icon">►</div>
+                    <div class="video-title">Video 3: Customer Testimonials</div>
+                </div>
+                <div class="video-thumbnail" data-video-id="video1">
+                    <img src="https://playmoreherbs.org/wp-content/uploads/2025/06/ply-more-web-30-05-Picsart-AiImageEnhancer-1-1536x1536.webp" alt="Video 3">
+                    <div class="play-icon">►</div>
+                    <div class="video-title">Video 3: Customer Testimonials</div>
+                </div>
+                <div class="video-thumbnail" data-video-id="video2">
+                    <img src="https://playmoreherbs.org/wp-content/uploads/2025/06/2305-african-herbs.webp" alt="Video 3">
+                    <div class="play-icon">►</div>
+                    <div class="video-title">Video 3: Customer Testimonials</div>
+                </div>
+            </div>
+            <button class="carousel-btn prev-btn">&#10094;</button>
+            <button class="carousel-btn next-btn">&#10095;</button>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2 class="section-title">What is Play More?</h2>
+        <p>Play More is a trusted men’s health supplement made from powerful African herbs. Designed to naturally boost your vitality, energy, and enhance overall male performance, Play More has helped millions of men worldwide. Now available in India, blending the time-honored wisdom of African herbs with your modern-day needs.</p>
+
+        <h2 class="section-title">Why Choose Play More Over Other Men’s Health Supplements?</h2>
+        <p>Choosing the right men’s health supplement can be overwhelming, but here’s why Play More stands out:</p>
+
+        <div class="why-choose-grid">
+            <div class="why-choose-card">
+                <h4>Trusted Worldwide:</h4>
+                <p>Play More को दुनिया भर में लाखों लोगों ने इस्तेमाल किया और उनकों फायदा मिला।</p>
+            </div>
+            <div class="why-choose-card">
+                <h4>100% Natural Ingredients:</h4>
+                <p>Play More शक्तिशाली अफ़्रीकी जड़ी बूटियों से मिलकर बना हैं। यह 100% नेचुरल हैं।</p>
+            </div>
+            <div class="why-choose-card">
+                <h4>Multi-Action Formula:</h4>
+                <p>यह आपकी केवल पावर, शक्ति और ऊर्जा ही नहीं, टाइमिंग भी बढ़ाता है।</p>
+            </div>
+            <div class="why-choose-card">
+                <h4>Ancient knowledge with Modern Formula :</h4>
+                <p>Play More प्राचीन जड़ी बूटियों और मॉडर्न साइंस से मिलकर बना हैं।</p>
+            </div>
+         
+        </div>
+        <button class="book-now-btn info-book-now"><span class="arrow-left">→</span> BOOK NOW <span class="arrow-right">←</span></button>
+    </div>
+
+    <div class="advantages-section">
+        <img src="https://playmoreherbs.org/wp-content/uploads/2025/06/Play-More-Bottle-Latest-1536x1536.png" class="product-image" />
+        <div class="advantages-content">
+            <h3>Advantages</h3>
+            <p>Our Men’s  health supplements offer a range of benefits designed to improve your overall Men’s  wellness:</p>
+            <ul>
+                <li>पॉवर में दमदार: आपके शरीर में पॉवर को बरकरार रखता है और हमेशा एक्टिव रखता हैं।</li>
+                <li>ऊर्जा की बढ़ोतरी: शरीर में ऊर्जा को बरकरार रखता हैं।</li>
+                <li>इच्छा शक्ति में बढ़ोतरी: इच्छा और जुनून को दोबारा जगाता है।</li>
+                <li>ज्यादा ऊर्जा और स्टैमिना: दिन और रात दोनों समय आपको एक्टिव और एनर्जेटिक रखता है।</li>
+                <li>टाइमिंग बढ़ाता है : Play More आपकी टाइमिंग को नेचुरल तरीके से बूस्ट करता हैं।</li>
+                <li>कॉन्फिडेंस बूस्टर : PlayMore कॉन्फिडेंस बूस्टर की तरह आपके कॉन्फिडेंस को हमेशा टॉप पर रखता हैं।</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="how-to-use-section">
+        <img src="https://playmoreherbs.org/wp-content/uploads/2025/06/play-more-HTU-copy.webp" alt="How to use PlayMore">
+    </div>
+
+    <div class="ratings-section">
+        <h2 class="section-title">Customer Reviews</h2>
+        <div class="ratings-summary">
+            <div class="overall-rating">
+                <span class="rating-value">4.7</span>
+                <span class="rating-max">/ 5</span>
+            </div>
+            <div class="reviews-count">999+ Reviews</div>
+        </div>
+        <div class="ratings-breakdown">
+            <div class="rating-bar">
+                <span class="star-label">5 ★</span>
+                <div class="bar-container">
+                    <div class="bar" style="width: 76%;"></div>
+                </div>
+                <span class="rating-count">1825</span>
+            </div>
+            <div class="rating-bar">
+                <span class="star-label">4 ★</span>
+                <div class="bar-container">
+                    <div class="bar" style="width: 19%;"></div>
+                </div>
+                <span class="rating-count">450</span>
+            </div>
+            <div class="rating-bar">
+                <span class="star-label">3 ★</span>
+                <div class="bar-container">
+                    <div class="bar" style="width: 5%;"></div>
+                </div>
+                <span class="rating-count">113</span>
+            </div>
+            <div class="rating-bar">
+                <span class="star-label">2 ★</span>
+                <div class="bar-container">
+                    <div class="bar" style="width: 1%;"></div>
+                </div>
+                <span class="rating-count">15</span>
+            </div>
+            <div class="rating-bar">
+                <span class="star-label">1 ★</span>
+                <div class="bar-container">
+                    <div class="bar" style="width: 0.5%;"></div>
+                </div>
+                <span class="rating-count">6</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="testimonial-section">
+        <h2 class="section-title">What Our Customers Say</h2>
+        <div class="testimonial-grid-container">
+        </div>
+    </div>
+
+    <div class="booking-section">
+        <h2 class="section-title">Book Your Order Now</h2>
+        <form class="booking-form">
+            <div class="form-group">
+                <label for="booking-phone">Contact Number *</label>
+                <input type="tel" id="booking-phone" name="booking-phone" placeholder="Enter Your Contact Number" required>
+            </div>
+            <div class="form-group">
+                <label for="booking-name">Full Name *</label>
+                <input type="text" id="booking-name" name="booking-name" placeholder="Enter Your Full Name" required>
+            </div>
+            <div class="form-group">
+                <label for="booking-address">Address *</label>
+                <input type="text" id="booking-address" name="booking-address" placeholder="Enter Your Complete Address" required>
+            </div>
+            <div class="form-group-inline">
+                <div class="form-group">
+                    <label for="booking-city">City *</label>
+                    <input type="text" id="booking-city" name="booking-city" placeholder="City" required>
+                </div>
+                <div class="form-group">
+                    <label for="booking-pincode">PIN Code</label>
+                    <input type="text" id="booking-pincode" name="booking-pincode" placeholder="PIN Code">
+                </div>
+            </div>
+            <a href="tel:7678334575" class="call-now-btn"><span class="arrow-left">→</span> CALL NOW <span class="arrow-right">←</span></a>
+        </form>
+    </div>
 
     <div class="button-container">
-        <a href="tel:7678334575" class="call-now-btn">CALL NOW</a>
-        <button class="book-now-btn">BOOK NOW</button>
+        <a href="tel:7678334575" class="call-now-btn"><span class="arrow-left">→</span> CALL NOW <span class="arrow-right">←</span></a>
+        <button class="book-now-btn"><span class="arrow-left">→</span> BOOK NOW <span class="arrow-right">←</span></button>
     </div>
 
     <div id="contact-modal" class="modal">
@@ -670,7 +1284,35 @@
             </form>
         </div>
     </div>
+<div id="video1" class="video-modal">
+    <div class="video-modal-content">
+        <span class="video-close-btn">&times;</span>
+        <video class="video-player" controls>
+            <source src="girl.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</div>
 
+<div id="video2" class="video-modal">
+    <div class="video-modal-content">
+        <span class="video-close-btn">&times;</span>
+        <video class="video-player" controls>
+            <source src="boy.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</div>
+
+<div id="video3" class="video-modal">
+    <div class="video-modal-content">
+        <span class="video-close-btn">&times;</span>
+        <video class="video-player" controls>
+            <source src="boy2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const productImage = document.querySelector('.product-image');
@@ -687,12 +1329,14 @@
             });
 
             const modal = document.getElementById('contact-modal');
-            const bookNowBtn = document.querySelector('.book-now-btn');
+            const bookNowBtns = document.querySelectorAll('.book-now-btn');
             const closeBtn = document.querySelector('.close-btn');
 
-            bookNowBtn.onclick = function() {
-                modal.style.display = 'block';
-            }
+            bookNowBtns.forEach(btn => {
+                btn.onclick = function() {
+                    modal.style.display = 'block';
+                }
+            });
 
             closeBtn.onclick = function() {
                 modal.style.display = 'none';
@@ -710,7 +1354,7 @@
                 const name = document.getElementById('name').value;
                 const phone = document.getElementById('phone').value;
                 const address = document.getElementById('address').value;
-                const whatsappNumber = '+919318308838';
+                const whatsappNumber = '+917678334575';
                 const message = `New Booking:
 Name: ${name}
 Phone: ${phone}
@@ -720,6 +1364,159 @@ Address: ${address}`;
                 modal.style.display = 'none';
             });
         });
+        const videoThumbnails = document.querySelectorAll('.video-thumbnail');
+videoThumbnails.forEach(thumbnail => {
+    thumbnail.addEventListener('click', () => {
+        const videoId = thumbnail.getAttribute('data-video-id');
+        const videoModal = document.getElementById(videoId);
+        const videoPlayer = videoModal.querySelector('.video-player');
+        videoModal.style.display = 'block';
+        videoPlayer.muted = false;
+        videoPlayer.play();
+    });
+});
+
+const videoCloseBtns = document.querySelectorAll('.video-close-btn');
+videoCloseBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const videoModal = btn.closest('.video-modal');
+        const videoPlayer = videoModal.querySelector('.video-player');
+        videoModal.style.display = 'none';
+        videoPlayer.pause();
+    });
+});
+
+window.addEventListener('click', (event) => {
+    const videoModals = document.querySelectorAll('.video-modal');
+    videoModals.forEach(modal => {
+        if (event.target == modal) {
+            const videoPlayer = modal.querySelector('.video-player');
+            modal.style.display = 'none';
+            videoPlayer.pause();
+        }
+    });
+});
+
+const carouselWrapper = document.querySelector('.carousel-wrapper');
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
+let currentIndex = 0;
+let autoplayInterval;
+
+function updateCarousel() {
+    const itemWidth = document.querySelector('.video-thumbnail').offsetWidth;
+    carouselWrapper.style.transform = `translateX(-${currentIndex * (itemWidth + 20)}px)`;
+}
+
+function startAutoplay() {
+    autoplayInterval = setInterval(() => {
+        if (currentIndex < 2) {
+            currentIndex++;
+        } else {
+            currentIndex = 0;
+        }
+        updateCarousel();
+    }, 3000);
+}
+
+function stopAutoplay() {
+    clearInterval(autoplayInterval);
+}
+
+nextBtn.addEventListener('click', () => {
+    stopAutoplay();
+    if (currentIndex < 2) {
+        currentIndex++;
+    } else {
+        currentIndex = 0;
+    }
+    updateCarousel();
+    startAutoplay();
+});
+
+prevBtn.addEventListener('click', () => {
+    stopAutoplay();
+    if (currentIndex > 0) {
+        currentIndex--;
+    } else {
+        currentIndex = 2;
+    }
+    updateCarousel();
+    startAutoplay();
+});
+
+startAutoplay();
+
+const reviews = [
+    {
+        img: "https://playmoreherbs.org/wp-content/uploads/2025/06/dzzgepjbz2cxwlz7hs12-scaled-1-1536x2048.webp",
+        name: "Ashwini Gupta",
+        text: "Play More lene ke baad performance aur stamina dono mein improvement feel hua. Aaj ise use karte huye mujhe 1 mahina ho gaya, testosterone level aur energy dono mein difference dikha."
+    },
+    {
+        img: "https://playmoreherbs.org/wp-content/uploads/2025/06/nsjahwowtql5hsbgpzqe-scaled-1-1536x2048.webp",
+        name: "Shreesh Sharma",
+        text: "It’s made with ayurvedic herbs- Safe and Natural."
+    },
+    {
+        img: "https://playmoreherbs.org/wp-content/uploads/2025/06/yshjdqadqv2yhr1yveek-scaled-1-1536x2048.webp",
+        name: "Deepak Sahu",
+        text: "I started seeing difference in my stamina and performance within few days."
+    },
+    {
+        img: "https://playmoreherbs.org/wp-content/uploads/2025/06/cr4diyhbdwmteyrkmkbp-scaled-1-1536x2048.webp",
+        name: "Vishal Patidar",
+        text: "There is no side effect, it’s natural."
+    },
+    {
+        img: "https://playmoreherbs.org/wp-content/uploads/2025/06/dzzgepjbz2cxwlz7hs12-scaled-1-1536x2048.webp",
+        name: "Vikram S",
+        text: "This Product increased my testosterone levels."
+    },
+    {
+        img: "https://playmoreherbs.org/wp-content/uploads/2025/06/nsjahwowtql5hsbgpzqe-scaled-1-1536x2048.webp",
+        name: "Shubham Panwar",
+        text: "This Product really help me to Play More!"
+    },
+    {
+        img: "https://playmoreherbs.org/wp-content/uploads/2025/06/yshjdqadqv2yhr1yveek-scaled-1-1536x2048.webp",
+        name: "Mohit Mourya",
+        text: "Play More se mera stamina pehle se improve hua."
+    },
+    {
+        img: "https://playmoreherbs.org/wp-content/uploads/2025/06/cr4diyhbdwmteyrkmkbp-scaled-1-1536x2048.webp",
+        name: "Vipin Joshi",
+        text: "This helps to increase my size."
+    },
+    {
+        img: "https://playmoreherbs.org/wp-content/uploads/2025/06/dzzgepjbz2cxwlz7hs12-scaled-1-1536x2048.webp",
+        name: "Abhishek Jain",
+        text: "Maine ise regular lena start kiya, aur first day se mujhe meri performance mein difference feel hua aur timing bhi pehle se better hui."
+    },
+    {
+        img: "https://playmoreherbs.org/wp-content/uploads/2025/06/nsjahwowtql5hsbgpzqe-scaled-1-1536x2048.webp",
+        name: "Ravi Dhakad",
+        text: "Good Product."
+    },
+  
+];
+
+const testimonialWrapper = document.querySelector('.testimonial-grid-container');
+if (testimonialWrapper) {
+    reviews.forEach(review => {
+        const card = document.createElement('div');
+        card.classList.add('testimonial-card');
+        card.innerHTML = `
+            <img src="${review.img}" alt="${review.name}" class="testimonial-img">
+            <div class="testimonial-content">
+                <div class="testimonial-name">${review.name}</div>
+                <p class="testimonial-text">"${review.text}"</p>
+            </div>
+        `;
+        testimonialWrapper.appendChild(card);
+    });
+}
+startAutoplay();
     </script>
 </body>
 </html>
